@@ -1,7 +1,7 @@
 # Git Batch Commit 🚀
 ### Created by Vaishal
 
-A command-line tool to stage, commit, and push large numbers of Git files in batches.
+A open-source command-line tool to stage, commit, and push large numbers of Git files in batches.
 
 ✅ Asks the user how many files to stage at a time
 ✅ Stages, commits, and pushes the files in batches
@@ -20,15 +20,21 @@ Additional Features:
 
 
 ## 📌 Installation
-### Python (pip)
+### Python (pip) for more info visit [https://pypi.org/project/git-batch-commit/]
 ```sh
 pip install git-batch-commit
 ```
-### npm install
+To use in python
+```sh
+python git_batch_commit
+
+### npm install for more info visit [https://www.npmjs.com/package/git-batch-commit/]
 ```sh
 npm install -g git-batch-commit
 ```
-
+To use in npm
+```sh
+npx git-batch-commit
 
 ---
 
