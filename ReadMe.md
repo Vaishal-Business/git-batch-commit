@@ -27,7 +27,7 @@ pip install git-batch-commit
 To use in python
 ```sh
 python git_batch_commit
-
+```
 ### npm install for more info visit [https://www.npmjs.com/package/git-batch-commit/]
 ```sh
 npm install -g git-batch-commit
@@ -35,7 +35,7 @@ npm install -g git-batch-commit
 To use in npm
 ```sh
 npx git-batch-commit
-
+```
 ---
 
 ## **🎉 Now You Have:**  
