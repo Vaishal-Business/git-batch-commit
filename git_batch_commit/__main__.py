@@ -2,7 +2,7 @@ import os
 import subprocess
 
 # ASCII Art for "Vaishal"
-ASCII_ART = """
+ASCII_ART = r"""
  ________      ___    ___      ___      ___ ________  ___  ________  ___  ___  ________  ___          
 |\   __  \    |\  \  /  /|    |\  \    /  /|\   __  \|\  \|\   ____\|\  \|\  \|\   __  \|\  \         
 \ \  \|\ /_   \ \  \/  / /    \ \  \  /  / | \  \|\  \ \  \ \  \___|\ \  \\\  \ \  \|\  \ \  \        
@@ -13,8 +13,8 @@ ASCII_ART = """
              \|___|/                                         \|_________|                             
 """
 
-# Function to run Git commands
 def run_git_command(command):
+    """Runs a Git command and handles errors."""
     try:
         result = subprocess.run(command, shell=True, capture_output=True, text=True)
         if result.returncode != 0:
@@ -22,22 +22,60 @@ def run_git_command(command):
         return result.stdout.strip()
     except Exception as e:
         print(f"❌ Exception: {e}")
+        return ""
 
-# Get unstaged files
 def get_unstaged_files():
-    output = run_git_command("git ls-files --others --exclude-standard")  # Get untracked files
-    output2 = run_git_command("git diff --name-only")  # Get modified files
+    """Returns a list of unstaged (modified and untracked) files."""
+    output = run_git_command("git ls-files --others --exclude-standard")  # Untracked files
+    output2 = run_git_command("git diff --name-only")  # Modified files
     files = output.split("\n") + output2.split("\n")
     return [file.strip() for file in files if file.strip()]
 
-# Main function
-def batch_commit():
-    print(ASCII_ART)  # Display ASCII art
-    print("🚀 Welcome to Vaishal's Git Commit Tool!\n")
-
+def ensure_git_repo():
+    """Ensures the directory is a Git repository, asking the user if needed."""
     if not os.path.exists(".git"):
-        print("⚠️  This is not a Git repository! Initializing Git...")
-        run_git_command("git init")
+        choice = input("⚠️  This is not a Git repository! Do you want to initialize one? (y/n): ").strip().lower()
+        if choice == "y":
+            run_git_command("git init")
+            remote_url = input("🌐 Enter remote repository URL (or leave blank to skip): ").strip()
+            if remote_url:
+                run_git_command(f"git remote add origin {remote_url}")
+        else:
+            print("🚫 Git repository initialization skipped.")
+            exit()
+
+def publish_branch():
+    """Checks if an upstream branch is set and publishes if necessary."""
+    current_branch = run_git_command("git branch --show-current")
+    remote_branch = run_git_command("git rev-parse --abbrev-ref --symbolic-full-name @{u}")
+    if "fatal" in remote_branch:
+        print(f"🚀 Publishing branch '{current_branch}' to remote repository...")
+        run_git_command(f"git push --set-upstream origin {current_branch}")
+
+def batch_commit():
+    """Handles batch committing and pushing of Git files."""
+    print(ASCII_ART)
+    print("🚀 Welcome to Vaishal's Git Commit Tool!\n")
+    ensure_git_repo()
+
+    files = get_unstaged_files()
+    if not files:
+        print("✅ No unstaged files found!")
+        return
+
+    print(f"\n📂 Total unstaged files: {len(files)}")
+    try:
+        num = int(input("📌 How many files do you want to stage in each batch? (0 to exit): "))
+        if num == 0:
+            return
+    except ValueError:
+        print("❌ Invalid input. Enter a number!")
+        return
+
+    commit_mode = input("🔄 Do you want to enter a commit message for each batch? (y/n): ").strip().lower()
+    commit_msg = ""
+    if commit_mode == "n":
+        commit_msg = input("📝 Enter commit message: ") or "Batch commit"
 
     while True:
         files = get_unstaged_files()
@@ -45,23 +83,16 @@ def batch_commit():
             print("✅ No unstaged files found!")
             break
 
-        print(f"\n📂 Total unstaged files: {len(files)}")
-        try:
-            num = int(input("📌 How many files do you want to stage in this batch? (0 to exit): "))
-            if num == 0:
-                break
-        except ValueError:
-            print("❌ Invalid input. Enter a number!")
-            continue
-
         batch = files[:num]
         print(f"\n✅ Staging {len(batch)} files...")
         run_git_command(f"git add {' '.join(batch)}")
 
-        commit_msg = input("📝 Enter commit message: ") or "Batch commit"
+        if commit_mode == "y":
+            commit_msg = input("📝 Enter commit message: ") or "Batch commit"
         run_git_command(f'git commit -m "{commit_msg}"')
 
         print("📤 Pushing changes to remote repository...")
+        publish_branch()
         run_git_command("git push")
 
         print("✅ Batch commit and push complete!\n")
