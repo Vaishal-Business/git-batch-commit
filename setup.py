@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="git-batch-commit",
-    version="1.0.2",
+    version="1.0.5",
     author="Vaishal",
     description="A powerful Git batch commit tool that stages, commits, and pushes files in customizable batches.",
     long_description="""
@@ -30,7 +30,7 @@ pip install git-batch-commit
 ## Usage:
 Once installed, you can run the tool using:
 ```sh
-git-batch-commit
+git_batch_commit
 ```
 Follow the interactive prompts to stage, commit, and push files.
 
