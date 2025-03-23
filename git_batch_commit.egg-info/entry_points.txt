@@ -1,0 +1,2 @@
+[console_scripts]
+git-batch-commit = git_batch_commit.__main__:batch_commit
