@@ -1,0 +1,62 @@
+Metadata-Version: 2.4
+Name: git-batch-commit
+Version: 1.0.2
+Summary: A powerful Git batch commit tool that stages, commits, and pushes files in customizable batches.
+Author: Vaishal
+Project-URL: GitHub, https://github.com/Vaishal-Business/git-batch-commit
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Version Control :: Git
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: gitpython
+Requires-Dist: rich
+Dynamic: author
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: project-url
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+# Git Batch Commit
+
+Git Batch Commit is an advanced Python-based command-line tool designed to automate and simplify batch staging, 
+committing, and pushing files in Git repositories. Ideal for developers working with a large number of files, 
+it allows users to control the number of files per commit, reducing performance issues and making version 
+control more efficient.
+
+## Features:
+- **Batch Staging & Committing** – Stage and commit files in user-defined batch sizes.
+- **Interactive CLI** – Users can choose the number of files to commit at each step.
+- **Automated Push** – Commits are automatically pushed to the remote repository.
+- **Error Handling** – Prevents common Git errors, such as missing staged files.
+- **Custom Commit Messages** – Users can provide their own commit messages or use generated ones.
+- **Cross-Platform** – Works on Windows, macOS, and Linux.
+
+## Installation:
+You can install Git Batch Commit via `pip`:
+```sh
+pip install git-batch-commit
+```
+
+## Usage:
+Once installed, you can run the tool using:
+```sh
+git-batch-commit
+```
+Follow the interactive prompts to stage, commit, and push files.
+
+## Requirements:
+- Python 3.6 or later
+- Git installed and configured
+
+## License:
+This project is licensed under the MIT License.
+
+## Author:
+Developed by Vaishal.
+    
