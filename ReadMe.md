@@ -1,22 +1,36 @@
+
+![174274336632](https://github.com/user-attachments/assets/45ff3f75-93f6-406c-af81-d95b9b3e2bef)
+
+
 # Git Batch Commit 🚀
 ### Created by Vaishal
 
 A open-source command-line tool to stage, commit, and push large numbers of Git files in batches.
 
 ✅ Asks the user how many files to stage at a time
+
 ✅ Stages, commits, and pushes the files in batches
+
 ✅ Uses ASCII text to display "Vaishal"
+
 ✅ Handles all possible errors
+
 ✅ Logs errors and actions for debugging
+
 ✅ Provides an interactive menu for better user experience
 
 
 Additional Features:
 ✔️ Detects if inside a Git repository, initializes if not
+
 ✔️ Interactive user input for batch size
+
 ✔️ Error handling for invalid inputs
+
 ✔️ Logs errors and Git command outputs
+
 ✔️ Option to push changes after commit
+
 
 
 ## 📌 Installation
@@ -34,7 +48,7 @@ npm install -g git-batch-commit
 ```
 To use in npm
 ```sh
-npx git-batch-commit
+npm exec git-batch-commit
 ```
 ---
 
