@@ -1,6 +1,6 @@
-Metadata-Version: 2.4
+Metadata-Version: 2.1
 Name: git-batch-commit
-Version: 1.0.2
+Version: 1.0.4
 Summary: A powerful Git batch commit tool that stages, commits, and pushes files in customizable batches.
 Author: Vaishal
 Project-URL: GitHub, https://github.com/Vaishal-Business/git-batch-commit
@@ -12,14 +12,6 @@ Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 Requires-Dist: gitpython
 Requires-Dist: rich
-Dynamic: author
-Dynamic: classifier
-Dynamic: description
-Dynamic: description-content-type
-Dynamic: project-url
-Dynamic: requires-dist
-Dynamic: requires-python
-Dynamic: summary
 
 
 # Git Batch Commit
