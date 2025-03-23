@@ -21,6 +21,7 @@ A open-source command-line tool to stage, commit, and push large numbers of Git 
 
 
 Additional Features:
+
 ✔️ Detects if inside a Git repository, initializes if not
 
 ✔️ Interactive user input for batch size
