@@ -1,0 +1,16 @@
+{
+    "name": "git-batch-commit",
+    "version": "1.0.0",
+    "description": "Batch commit and push Git files efficiently",
+    "author": "Vaishal",
+    "bin": {
+      "git-batch-commit": "bin/cli.js"
+    },
+    "dependencies": {
+      "child_process": "^1.0.2"
+    },
+    "scripts": {
+      "postinstall": "pip install git-batch-commit"
+    }
+  }
+  

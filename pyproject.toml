@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "git-batch-commit"
+version = "1.0.0"
+description = "A Python package to commit files in batches to Git"
+authors = ["Vaishal"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/Vaishal-Business/git-batch-commit"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+gitpython = "^3.1.30"
+
+[tool.poetry.scripts]
+git-batch-commit = "git_batch_commit.cli:main"
