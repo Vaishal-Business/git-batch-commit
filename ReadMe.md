@@ -11,8 +11,6 @@ A open-source command-line tool to stage, commit, and push large numbers of Git 
 
 ✅ Stages, commits, and pushes the files in batches
 
-✅ Uses ASCII text to display "Vaishal"
-
 ✅ Handles all possible errors
 
 ✅ Logs errors and actions for debugging
